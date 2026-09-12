@@ -10,7 +10,7 @@ Este documento centraliza el acceso a toda la documentación técnica disponible
 
 | Código | Documento | Estado |
 |--------|-----------|--------|
-| PROC-001 | *(Pendiente)* | - |
+| PROC-001 | [Uso de Debloat by JP en Windows](01-Procedimientos/PROC-001-Uso-de-Debloat-by-JP-en-Windows.md) | <span class="kb-status kb-status--ok">Vigente</span> |
 
 ---
 

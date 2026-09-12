@@ -78,6 +78,7 @@ Información técnica clara y reutilizable para **Ventas**, **Taller de Armado**
 
 ## Documentación reciente
 
+- [PROC-001 - Uso de Debloat by JP en Windows](01-Procedimientos/PROC-001-Uso-de-Debloat-by-JP-en-Windows.md)
 - [CHK-001 - Ampliación de memoria o almacenamiento en notebooks](04-Checklists/CHK-001-Ampliacion-de-Memoria-o-Almacenamiento-en-Notebooks.md)
 - [COMP-002 - BIOSTAR H510MHP 4.0 con panel frontal AC'97](05-Compatibilidades/COMP-002-BIOSTAR-H510MHP-4.0-con-Panel-Frontal-AC97.md)
 - [COMP-001 - Ryzen 5 3400G con motherboards B550](05-Compatibilidades/COMP-001-Ryzen-5-3400G-con-Motherboards-B550.md)

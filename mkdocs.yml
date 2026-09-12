@@ -85,6 +85,7 @@ nav:
   - Inicio: index.md
   - Procedimientos:
       - Introducción: 01-Procedimientos/README.md
+      - Uso de Debloat by JP en Windows: 01-Procedimientos/PROC-001-Uso-de-Debloat-by-JP-en-Windows.md
   - Guías técnicas:
       - Introducción: 02-Guias-Tecnicas/README.md
       - Memoria RAM en dual channel: 02-Guias-Tecnicas/GUIDE-001-Memoria-RAM-Dual-Channel.md

@@ -13,3 +13,11 @@ Cada procedimiento busca describir una actividad específica indicando:
 - Historial de cambios.
 
 Los procedimientos buscan reducir errores, estandarizar tareas y garantizar una ejecución consistente.
+
+---
+
+# Documentos disponibles
+
+| Código | Documento | Estado |
+|--------|-----------|--------|
+| PROC-001 | [Uso de Debloat by JP en Windows](PROC-001-Uso-de-Debloat-by-JP-en-Windows.md) | <span class="kb-status kb-status--ok">Vigente</span> |

@@ -6,6 +6,25 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.0.1] - 2026-09-12
+
+### Modificado
+
+- Incorporación del enlace al repositorio oficial de Debloat by JP en `PROC-001`.
+- Actualización del procedimiento para reflejar la generación automática del punto de restauración por parte de la herramienta.
+
+---
+
+## [1.0.0] - 2026-09-12
+
+### Agregado
+
+- Incorporación de `PROC-001 - Uso de Debloat by JP en Windows`.
+- Definición de controles previos, validaciones posteriores y criterios de registro para una ejecución segura.
+- Actualización del índice principal, la portada y la navegación del sitio.
+
+---
+
 ## [0.9.0] - 2026-08-15
 
 ### Agregado
