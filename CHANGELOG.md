@@ -6,6 +6,17 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.1.0] - 2026-09-12
+
+### Agregado
+
+- Incorporación de `COMP-003 - Memorias KLEVV FIT V con plataforma Intel LGA1851`.
+- Documentación de las pruebas cruzadas con tres memorias KLEVV, tres procesadores Intel Core Ultra y tres motherboards LGA1851.
+- Definición de la restricción preventiva para ventas, armados, RMA y soporte.
+- Actualización de los índices, la portada y la navegación del sitio.
+
+---
+
 ## [1.0.1] - 2026-09-12
 
 ### Modificado

@@ -45,6 +45,7 @@ Este documento centraliza el acceso a toda la documentación técnica disponible
 |--------|-----------|--------|
 | COMP-001 | [Ryzen 5 3400G con motherboards B550](05-Compatibilidades/COMP-001-Ryzen-5-3400G-con-Motherboards-B550.md) | <span class="kb-status kb-status--ok">Vigente</span> |
 | COMP-002 | [BIOSTAR H510MHP 4.0 con panel frontal AC'97](05-Compatibilidades/COMP-002-BIOSTAR-H510MHP-4.0-con-Panel-Frontal-AC97.md) | <span class="kb-status kb-status--ok">Vigente</span> |
+| COMP-003 | [Memorias KLEVV FIT V con plataforma Intel LGA1851](05-Compatibilidades/COMP-003-Memorias-KLEVV-FIT-V-con-Intel-LGA1851.md) | <span class="kb-status kb-status--ok">Vigente</span> |
 
 ---
 
