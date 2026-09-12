@@ -6,7 +6,7 @@
 | **Categoría** | Compatibilidad / Incompatibilidad |
 | **Área** | Ventas, Taller de Armado, RMA y Soporte Técnico Virtual |
 | **Estado** | <span class="kb-status kb-status--ok">Vigente</span> |
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Fecha de creación** | 2026-09-12 |
 | **Última actualización** | 2026-09-12 |
 
@@ -156,4 +156,11 @@ Referencias consultadas el **2026-09-12**.
 
 | Versión | Fecha | Descripción |
 |---------|-------|-------------|
+| 1.1 | 2026-09-12 | Incorporación del vínculo al análisis técnico RMA-002. |
 | 1.0 | 2026-09-12 | Creación del documento con la matriz de pruebas y la restricción preventiva para ventas, armados y soporte. |
+
+---
+
+# Caso RMA relacionado
+
+- [RMA-002 - Sin POST con memorias KLEVV FIT V en Intel LGA1851](../03-Casos-RMA/RMA-002-Sin-POST-con-memorias-KLEVV-FIT-V-en-Intel-LGA1851.md): análisis técnico del incidente, hipótesis causales, metodología de confirmación y referencias oficiales.

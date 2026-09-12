@@ -13,3 +13,4 @@ Los documentos no deben incluir nombres de clientes, números de serie, UUID ni 
 | Código | Documento | Estado |
 |--------|-----------|--------|
 | RMA-001 | [Bajones de FPS por memoria RAM en single channel](RMA-001-Bajones-de-FPS-por-Memoria-Single-Channel.md) | <span class="kb-status kb-status--ok">Validado</span> |
+| RMA-002 | [Sin POST con memorias KLEVV FIT V en Intel LGA1851](RMA-002-Sin-POST-con-memorias-KLEVV-FIT-V-en-Intel-LGA1851.md) | En análisis |

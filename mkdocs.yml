@@ -93,6 +93,7 @@ nav:
   - Casos RMA:
       - Introducción: 03-Casos-RMA/README.md
       - Bajones de FPS por single channel: 03-Casos-RMA/RMA-001-Bajones-de-FPS-por-Memoria-Single-Channel.md
+      - Sin POST con KLEVV FIT V en Intel LGA1851: 03-Casos-RMA/RMA-002-Sin-POST-con-memorias-KLEVV-FIT-V-en-Intel-LGA1851.md
   - Checklists:
       - Introducción: 04-Checklists/README.md
       - Ampliación de notebooks: 04-Checklists/CHK-001-Ampliacion-de-Memoria-o-Almacenamiento-en-Notebooks.md

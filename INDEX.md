@@ -28,6 +28,7 @@ Este documento centraliza el acceso a toda la documentación técnica disponible
 | Código | Documento | Estado |
 |--------|-----------|--------|
 | RMA-001 | [Bajones de FPS por memoria RAM en single channel](03-Casos-RMA/RMA-001-Bajones-de-FPS-por-Memoria-Single-Channel.md) | <span class="kb-status kb-status--ok">Validado</span> |
+| RMA-002 | [Sin POST con memorias KLEVV FIT V en Intel LGA1851](03-Casos-RMA/RMA-002-Sin-POST-con-memorias-KLEVV-FIT-V-en-Intel-LGA1851.md) | En análisis |
 
 ---
 

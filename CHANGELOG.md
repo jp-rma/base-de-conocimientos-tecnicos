@@ -6,6 +6,21 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.2.0] - 2026-09-12
+
+### Agregado
+
+- Incorporación de `RMA-002 - Sin POST con memorias KLEVV FIT V en Intel LGA1851`.
+- Investigación técnica sobre SPD, SPD Hub, PMIC, Intel MRC, entrenamiento DDR5, perfiles XMP/EXPO y alcance de las listas QVL.
+- Metodología de reproducción, criterios para confirmar la causa raíz y paquete de evidencia para escalar a fabricantes.
+
+### Modificado
+
+- Actualización de `COMP-003` a la versión 1.1 con un enlace al análisis RMA-002.
+- Actualización del índice general, el índice de casos RMA, la portada y la navegación del sitio.
+
+---
+
 ## [1.1.0] - 2026-09-12
 
 ### Agregado
