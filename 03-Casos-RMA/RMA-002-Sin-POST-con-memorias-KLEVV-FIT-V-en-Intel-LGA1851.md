@@ -6,7 +6,7 @@
 | **Categoría** | Caso RMA |
 | **Área** | RMA, Taller de Armado, Soporte Técnico Virtual y Ventas |
 | **Estado** | En análisis |
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Fecha de las pruebas** | No registrada |
 | **Fecha de creación** | 2026-09-12 |
 | **Última actualización** | 2026-09-12 |
@@ -44,7 +44,7 @@ La ausencia de imagen es una consecuencia de que el equipo no alcanza el POST; p
 
 ## Memorias involucradas
 
-La siguiente correspondencia entre código interno y número de parte se obtuvo comparando capacidad, color, velocidad y latencia con el catálogo oficial vigente de KLEVV. Debe confirmarse con la etiqueta física antes de remitir el caso al fabricante.[^1]
+La siguiente correspondencia entre código interno y número de parte se obtuvo comparando capacidad, color, velocidad y latencia con el [catálogo oficial vigente de KLEVV](https://www.klevv.com/ken/products_details/memory/Klevv_FITV). Debe confirmarse con la etiqueta física antes de remitir el caso al fabricante.
 
 | Código interno | Descripción interna | Número de parte KLEVV esperado | EAN esperado | Configuración |
 |----------------|---------------------|--------------------------------|--------------|---------------|
@@ -52,7 +52,7 @@ La siguiente correspondencia entre código interno y número de parte se obtuvo 
 | 21664 | DDR5 32 GB 6000 MT/s KLEVV FIT V Black CL30 | `KD5AGU880-60A300L` | `4895194968795` | Kit 2 × 16 GB |
 | 21782 | DDR5 16 GB 6000 MT/s KLEVV FIT V White CL30 | `KD5AGU880-60A300Q` | `4895194968337` | Módulo 1 × 16 GB |
 
-KLEVV especifica para la familia FIT V:[^1]
+KLEVV especifica en la [página oficial de FIT V](https://www.klevv.com/ken/products_details/memory/Klevv_FITV) los siguientes parámetros:
 
 | Parámetro | Especificación oficial |
 |-----------|------------------------|
@@ -74,7 +74,7 @@ Los 6000 MT/s y las latencias CL28/CL30 corresponden a parámetros probados de o
 | Intel Core Ultra 7 265K | Core Ultra 200S, LGA1851 | Sí | Sin POST y sin imagen |
 | Intel Core Ultra 7 265F | Core Ultra 200S, LGA1851 | No | Sin POST; la validación de video requiere GPU dedicada |
 
-Intel incluye los tres modelos dentro de la familia Core Ultra 200S y publica DDR5-6400 como velocidad máxima de memoria de la familia, sujeta a la configuración concreta.[^2] El sufijo `F` identifica al Core Ultra 7 265F sin gráficos integrados; esta condición puede explicar una ausencia de imagen si se utiliza una salida del motherboard, pero no explica la incompatibilidad general porque el caso también se reproduce con el Core Ultra 5 225 y el Core Ultra 7 265K, ni porque los mismos equipos inician con otra memoria.
+Intel incluye los tres modelos dentro de la familia Core Ultra 200S y publica DDR5-6400 como velocidad máxima de memoria de la familia, sujeta a la configuración concreta ([Intel Core Ultra Desktop Processors Series 2](https://www.intel.com/content/www/us/en/products/docs/processors/core-ultra/core-ultra-desktop-processors-series-2-brief.html)). El sufijo `F` identifica al Core Ultra 7 265F sin gráficos integrados; esta condición puede explicar una ausencia de imagen si se utiliza una salida del motherboard, pero no explica la incompatibilidad general porque el caso también se reproduce con el Core Ultra 5 225 y el Core Ultra 7 265K, ni porque los mismos equipos inician con otra memoria.
 
 ## Motherboards probados
 
@@ -84,7 +84,7 @@ Intel incluye los tres modelos dentro de la familia Core Ultra 200S y publica DD
 | ASRock | Phantom Gaming Z890 Nova WiFi | Intel Z890 | 4 | Sin POST y sin imagen |
 | ASUS | ROG Strix B860-A Gaming WiFi | Intel B860 | 4 | Sin POST y sin imagen |
 
-ASUS y ASRock declaran soporte para procesadores Intel Core Ultra Series 2 y memorias DDR5 en estos modelos.[^3][^4][^5] Esta compatibilidad general de interfaz no garantiza el funcionamiento de todos los números de parte de memoria.
+ASUS y ASRock declaran soporte para procesadores Intel Core Ultra Series 2 y memorias DDR5 en la [ROG Strix B860-A Gaming WiFi](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1851/ROG_STRIX_B860-A_GAMING_WIFI/E25226_ROG_STRIX_B860-A_GAMING_WIFI_EM_WEB.pdf?model=ROG+STRIX+B860-A+GAMING+WIFI), la [ROG Strix Z890-A Gaming WiFi](https://rog.asus.com/motherboards/rog-strix/rog-strix-z890-a-gaming-wifi/spec/) y la [ASRock Z890 Nova WiFi](https://pg.asrock.com/mb/Intel/Z890%20Nova%20WiFi/index.asp). Esta compatibilidad general de interfaz no garantiza el funcionamiento de todos los números de parte de memoria.
 
 ## Datos de configuración todavía no registrados
 
@@ -130,11 +130,11 @@ Estos datos faltantes no invalidan la incompatibilidad operacional observada, pe
 
 ## Qué ocurre antes del POST
 
-El controlador de memoria está integrado en el procesador Core Ultra 200S. Intel documenta dos instancias independientes de controlador, una por cada *memory slice*, capaces de administrar canales DDR5.[^6] Antes de que el sistema pueda mostrar el BIOS o iniciar video, el firmware debe detectar los DIMM, obtener su configuración y entrenar el enlace entre el controlador y la DRAM.
+El controlador de memoria está integrado en el procesador Core Ultra 200S. Intel documenta dos instancias independientes de controlador, una por cada *memory slice*, capaces de administrar canales DDR5 ([Intel - Memory Controller](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/007/memory-controller-mc/)). Antes de que el sistema pueda mostrar el BIOS o iniciar video, el firmware debe detectar los DIMM, obtener su configuración y entrenar el enlace entre el controlador y la DRAM.
 
-DDR5 agrega componentes activos al módulo. El **SPD Hub** conserva la información SPD y funciona como interfaz entre el host y otros componentes del DIMM mediante el bus lateral compatible con I3C/I²C. El **PMIC** realiza la regulación local y permite configurar secuencias y niveles de alimentación.[^7] Una falla en cualquiera de esas etapas puede detener la inicialización antes del POST, aunque los chips DRAM no estén físicamente dañados.
+DDR5 agrega componentes activos al módulo. El **SPD Hub** conserva la información SPD y funciona como interfaz entre el host y otros componentes del DIMM mediante el bus lateral compatible con I3C/I²C. El **PMIC** realiza la regulación local y permite configurar secuencias y niveles de alimentación ([Micron - DDR5 Key Module Features](https://www.micron.com/content/dam/micron/global/public/products/white-paper/ddr5-key-module-features-wp-client.pdf)). Una falla en cualquiera de esas etapas puede detener la inicialización antes del POST, aunque los chips DRAM no estén físicamente dañados.
 
-Intel confirma que el BIOS ejecuta el **Memory Reference Code (MRC)** durante el entrenamiento. Entre otras tareas, el MRC ajusta terminaciones ODT, fuerza de los drivers y parámetros del controlador y la DRAM para buscar un margen operativo válido.[^8]
+Intel confirma que el BIOS ejecuta el **Memory Reference Code (MRC)** durante el entrenamiento. Entre otras tareas, el MRC ajusta terminaciones ODT, fuerza de los drivers y parámetros del controlador y la DRAM para buscar un margen operativo válido ([Intel - Power Training](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/power-training/)).
 
 Una representación simplificada es:
 
@@ -160,27 +160,27 @@ El caso sólo permite ubicar la falla de manera general antes del POST. Sin cód
 
 ## Parámetros SPD frente a XMP/EXPO
 
-KLEVV publica un SPD base de **DDR5-4800, 40-40-40-77 y 1,1 V** para FIT V, mientras que los 6000 MT/s CL28/CL30 utilizan perfiles de rendimiento con voltajes superiores.[^1] Intel indica que un módulo XMP debe realizar el primer arranque con parámetros JEDEC predeterminados antes de que el usuario active el perfil de overclocking.[^9]
+KLEVV publica un SPD base de **DDR5-4800, 40-40-40-77 y 1,1 V** en las [especificaciones de FIT V](https://www.klevv.com/ken/products_details/memory/Klevv_FITV), mientras que los 6000 MT/s CL28/CL30 utilizan perfiles de rendimiento con voltajes superiores. Intel indica que un módulo XMP debe realizar el primer arranque con parámetros JEDEC predeterminados antes de que el usuario active el perfil de overclocking ([Intel Extreme Memory Profile](https://www.intel.com/content/www/us/en/gaming/extreme-memory-profile-xmp.html)).
 
-El controlador Core Ultra 200S contempla DDR5-4800 con CAS 40 dentro de su tabla de temporizaciones.[^10] Por lo tanto, no existe una contradicción evidente entre la velocidad y el CAS SPD publicados por KLEVV y los valores base aceptados por Intel.
+El controlador Core Ultra 200S contempla DDR5-4800 con CAS 40 dentro de su [tabla oficial de temporizaciones](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/005/system-memory-timing-support/). Por lo tanto, no existe una contradicción evidente entre la velocidad y el CAS SPD publicados por KLEVV y los valores base aceptados por Intel.
 
 Esta comparación hace menos probable que el problema sea simplemente «6000 MT/s es demasiado». Si el BIOS fue restablecido y XMP permaneció desactivado, deben investigarse otros campos SPD, la identificación del módulo, la revisión del SPD Hub/PMIC, la geometría de los chips y el entrenamiento eléctrico.
 
 ## UDIMM, CUDIMM y topología de slots
 
-FIT V es un **UDIMM convencional**, no un CUDIMM con controlador de reloj. Intel admite UDIMM y CUDIMM de 288 pines en procesadores de escritorio Core Ultra 200S, pero establece límites distintos según el tipo de módulo y la topología 1DPC/2DPC.[^11]
+FIT V es un **UDIMM convencional**, no un CUDIMM con controlador de reloj. Intel admite UDIMM y CUDIMM de 288 pines en procesadores de escritorio Core Ultra 200S, pero establece límites distintos según el tipo de módulo y la topología 1DPC/2DPC ([Intel - Processor SKU Support Matrix](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/processor-sku-support-matrix/)).
 
 Las tres motherboards probadas poseen cuatro slots, es decir, hasta dos DIMM físicos por canal. La matriz detallada de Intel contempla para una placa 2DPC velocidades base inferiores a las máximas comerciales cuando aumenta la población. Esto afecta la velocidad garantizada, pero no explica que un único FIT V no pueda arrancar a su SPD de 4800 MT/s.
 
 ## Qué significa realmente la QVL
 
-Una QVL registra combinaciones que pasaron el proceso de validación del fabricante; no constituye una garantía genérica por marca o familia. ASUS recomienda comprobar el número de parte exacto y, si una memoria incluida presenta problemas, actualizar el BIOS y contactar soporte.[^12]
+Una QVL registra combinaciones que pasaron el proceso de validación del fabricante; no constituye una garantía genérica por marca o familia. ASUS recomienda comprobar el número de parte exacto y, si una memoria incluida presenta problemas, actualizar el BIOS y contactar soporte ([ASUS - Cómo consultar la QVL](https://www.asus.com/support/FAQ/1043883)).
 
 La documentación vigente de KLEVV aporta tres precisiones importantes:
 
-1. FIT V soporta perfiles Intel XMP y AMD EXPO, pero esa característica describe el formato de los perfiles de overclocking.[^1]
-2. La ficha técnica actual limita su nota de compatibilidad a Ryzen 9000 y anteriores e **Intel de 14.ª generación y anteriores**; no declara Core Ultra 200S ni LGA1851.[^13]
-3. La lista oficial FIT V actualizada en agosto de 2026 contiene únicamente plataformas AMD. No incluye Intel, Z890, B860 ni ninguno de los tres motherboards de este caso.[^14]
+1. [FIT V soporta perfiles Intel XMP y AMD EXPO](https://www.klevv.com/ken/products_details/memory/Klevv_FITV), pero esa característica describe el formato de los perfiles de overclocking.
+2. La [ficha técnica actual](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV_Product%20Sheet_MEMORY_FIT%20V_v5_EN.pdf?2026010501=) limita su nota de compatibilidad a Ryzen 9000 y anteriores e **Intel de 14.ª generación y anteriores**; no declara Core Ultra 200S ni LGA1851.
+3. La [lista oficial FIT V actualizada en agosto de 2026](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV%20FIT%20V%20DDR5%20Memory%20Compatibility%20List_Aug26.pdf) contiene únicamente plataformas AMD. No incluye Intel, Z890, B860 ni ninguno de los tres motherboards de este caso.
 
 En consecuencia, la frase «soporta Intel XMP» no debe interpretarse como «validada con Intel LGA1851». Tampoco se encontró una publicación oficial de KLEVV que describa este síntoma o anuncie una corrección.
 
@@ -202,7 +202,7 @@ En consecuencia, la frase «soporta Intel XMP» no debe interpretarse como «val
 
 ## Hipótesis principal: interpretación SPD o selección de parámetros
 
-El SPD no contiene únicamente la velocidad comercial y el CAS. Describe organización, densidad, ranks, temporizaciones, revisiones, identificación del fabricante, perfiles y otros datos que el BIOS utiliza para construir la configuración inicial. Intel XMP 3.0 permite además campos y perfiles ampliados en DDR5.[^9]
+El SPD no contiene únicamente la velocidad comercial y el CAS. Describe organización, densidad, ranks, temporizaciones, revisiones, identificación del fabricante, perfiles y otros datos que el BIOS utiliza para construir la configuración inicial. [Intel XMP 3.0](https://www.intel.com/content/www/us/en/gaming/extreme-memory-profile-xmp.html) permite además campos y perfiles ampliados en DDR5.
 
 Un campo válido pero no contemplado, una relación de temporizaciones que active una ruta defectuosa del MRC, una revisión distinta del módulo o un problema de lectura pueden producir un fallo antes del POST. El hecho de que CL28, CL30, kit doble y módulo individual compartan el síntoma sugiere buscar primero aquello que comparten: familia de PCB, DRAM, SPD Hub, PMIC o plantilla de programación SPD.
 
@@ -210,25 +210,25 @@ Esta hipótesis no implica necesariamente que el SPD incumpla una especificació
 
 ## Hipótesis SPD Hub / bus lateral
 
-En DDR5, el host no trata al SPD como una memoria pasiva aislada. El SPD Hub administra la comunicación lateral y puede dar acceso local a componentes como el PMIC.[^7] Una diferencia de revisión, temporización de respuesta, direccionamiento o inicialización podría impedir la detección correcta del DIMM en LGA1851.
+En DDR5, el host no trata al SPD como una memoria pasiva aislada. El SPD Hub administra la comunicación lateral y puede dar acceso local a componentes como el PMIC ([Micron - DDR5 Key Module Features](https://www.micron.com/content/dam/micron/global/public/products/white-paper/ddr5-key-module-features-wp-client.pdf)). Una diferencia de revisión, temporización de respuesta, direccionamiento o inicialización podría impedir la detección correcta del DIMM en LGA1851.
 
 La falla con un único módulo es compatible con esta hipótesis. El fallo al mezclar KLEVV con otra marca también lo es: el BIOS necesita completar la detección e inicialización de todos los DIMM instalados antes de construir una configuración utilizable. Un módulo funcional no neutraliza a otro que detiene esa etapa.
 
 ## Hipótesis PMIC
 
-El PMIC de DDR5 recibe alimentación desde la placa y genera localmente los rieles que utiliza la DRAM. Su configuración incluye niveles, rampas, protecciones y secuencias de encendido.[^7] Una interacción entre una revisión de PMIC y la secuencia aplicada por el firmware LGA1851 puede impedir que la DRAM quede lista para entrenamiento.
+El PMIC de DDR5 recibe alimentación desde la placa y genera localmente los rieles que utiliza la DRAM. Su configuración incluye niveles, rampas, protecciones y secuencias de encendido ([Micron - DDR5 Key Module Features](https://www.micron.com/content/dam/micron/global/public/products/white-paper/ddr5-key-module-features-wp-client.pdf)). Una interacción entre una revisión de PMIC y la secuencia aplicada por el firmware LGA1851 puede impedir que la DRAM quede lista para entrenamiento.
 
 Como FIT V funciona en otras plataformas, la hipótesis sería una incompatibilidad de secuencia o programación, no una ausencia total de alimentación ni una falla universal del PMIC.
 
 ## Hipótesis de entrenamiento eléctrico
 
-El entrenamiento ajusta parámetros del controlador y de la DRAM para encontrar ventanas de lectura/escritura estables. Intel documenta que el MRC modifica terminaciones ODT, fuerza de drivers y buffers buscando equilibrio entre consumo y margen operativo.[^8]
+El entrenamiento ajusta parámetros del controlador y de la DRAM para encontrar ventanas de lectura/escritura estables. Intel documenta que el MRC modifica terminaciones ODT, fuerza de drivers y buffers buscando equilibrio entre consumo y margen operativo ([Intel - Power Training](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/power-training/)).
 
 Un PCB, una organización de ranks/chips o una combinación de características eléctricas puede tener margen suficiente con los IMC de AM5 y LGA1700, pero no con la ruta de entrenamiento utilizada por Core Ultra 200S. El uso de dos fabricantes de motherboard reduce la probabilidad de un defecto exclusivo del trazado de una placa; no elimina una interacción común entre FIT V, el IMC LGA1851 y el MRC compartido por el ecosistema.
 
 ## Papel del BIOS, MRC, microcódigo e Intel ME
 
-Los fabricantes publican regularmente cambios de compatibilidad de memoria. ASUS, por ejemplo, actualizó MRC y compatibilidad DDR5 en el historial de BIOS de la ROG Strix B860-A Gaming WiFi; ASRock publicó varias revisiones para mejorar compatibilidad de memoria en la Z890 Nova WiFi.[^15][^16]
+Los fabricantes publican regularmente cambios de compatibilidad de memoria. ASUS actualizó MRC y compatibilidad DDR5 en el [historial de BIOS de la ROG Strix B860-A Gaming WiFi](https://www.asus.com/au/supportonly/rog%20strix%20b860-a%20gaming%20wifi/helpdesk_bios/); ASRock publicó varias revisiones para mejorar compatibilidad de memoria en el [historial de BIOS de la Z890 Nova WiFi](https://pg.asrock.com/mb/intel/Z890%20Nova%20WiFi/bios.html).
 
 Esto demuestra que la compatibilidad no depende únicamente del hardware. Sin embargo, que «el BIOS esté actualizado» no prueba que incluya una corrección para estos números de parte. Para hacer reproducible el caso deben registrarse la versión exacta, fecha, MRC, microcódigo e Intel ME de cada ensayo.
 
@@ -282,7 +282,7 @@ Esto demuestra que la compatibilidad no depende únicamente del hardware. Sin em
 | 7 | Módulo de control nuevamente | POST y estabilidad | Confirma que la plataforma continúa funcional |
 | 8 | KLEVV en LGA1700 y AM5 | Placa, CPU, BIOS y slot | Control positivo del DIMM |
 
-ASUS indica A2 para un DIMM y A2/B2 para dos en la ROG Strix B860-A, y aclara que el Q-LED amarillo identifica DRAM como causa probable, no definitiva.[^3] En ASRock, deben registrarse los valores del Dr. Debug: los códigos 53 y 54 corresponden a errores de inicialización de memoria, mientras que 55 indica memoria no instalada.[^17]
+El [manual de ASUS ROG Strix B860-A Gaming WiFi](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1851/ROG_STRIX_B860-A_GAMING_WIFI/E25226_ROG_STRIX_B860-A_GAMING_WIFI_EM_WEB.pdf?model=ROG+STRIX+B860-A+GAMING+WIFI) indica A2 para un DIMM y A2/B2 para dos, y aclara que el Q-LED amarillo identifica DRAM como causa probable, no definitiva. En ASRock, deben registrarse los valores del Dr. Debug: los códigos 53 y 54 corresponden a errores de inicialización de memoria, mientras que 55 indica memoria no instalada ([ASRock - Debug LED Troubleshooting Checklist](https://asrock.com/support/index.asp?cat=Debug)).
 
 ## Lectura técnica del SPD
 
@@ -410,25 +410,27 @@ Preguntas concretas para KLEVV:
 
 ---
 
-# Fuentes
+# Referencias
 
-[^1]: KLEVV. [FIT V DDR5: especificaciones, perfiles SPD y números de parte](https://www.klevv.com/ken/products_details/memory/Klevv_FITV). Consultado el 2026-09-12.
-[^2]: Intel. [Intel Core Ultra Desktop Processors (Series 2) Product Brief](https://www.intel.com/content/www/us/en/products/docs/processors/core-ultra/core-ultra-desktop-processors-series-2-brief.html). Modelos, memoria máxima y presencia de gráficos integrados. Consultado el 2026-09-12.
-[^3]: ASUS. [Manual de ROG Strix B860-A Gaming WiFi](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1851/ROG_STRIX_B860-A_GAMING_WIFI/E25226_ROG_STRIX_B860-A_GAMING_WIFI_EM_WEB.pdf?model=ROG+STRIX+B860-A+GAMING+WIFI). Slots recomendados, SPD y Q-LED. Consultado el 2026-09-12.
-[^4]: ASUS. [Especificaciones de ROG Strix Z890-A Gaming WiFi](https://rog.asus.com/motherboards/rog-strix/rog-strix-z890-a-gaming-wifi/spec/). Consultado el 2026-09-12.
-[^5]: ASRock. [Z890 Nova WiFi](https://pg.asrock.com/mb/Intel/Z890%20Nova%20WiFi/index.asp). Especificaciones de CPU y memoria. Consultado el 2026-09-12.
-[^6]: Intel. [Core Ultra 200S Datasheet: Memory Controller](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/007/memory-controller-mc/). Consultado el 2026-09-12.
-[^7]: Micron. [DDR5 Key Module Features](https://www.micron.com/content/dam/micron/global/public/products/white-paper/ddr5-key-module-features-wp-client.pdf). Arquitectura del PMIC, SPD Hub y bus lateral. Consultado el 2026-09-12.
-[^8]: Intel. [Core Ultra 200S Datasheet: Power Training](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/power-training/). Función del BIOS MRC durante el entrenamiento. Consultado el 2026-09-12.
-[^9]: Intel. [Intel Extreme Memory Profile (XMP)](https://www.intel.com/content/www/us/en/gaming/extreme-memory-profile-xmp.html). Perfiles XMP 3.0 y arranque predeterminado JEDEC. Consultado el 2026-09-12.
-[^10]: Intel. [Core Ultra 200S Datasheet: System Memory Timing Support](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/005/system-memory-timing-support/). Consultado el 2026-09-12.
-[^11]: Intel. [Core Ultra 200S Datasheet: Processor SKU Support Matrix](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/processor-sku-support-matrix/). UDIMM, CUDIMM, 1DPC y 2DPC. Consultado el 2026-09-12.
-[^12]: ASUS. [Cómo consultar la lista QVL de CPU y memoria](https://www.asus.com/support/FAQ/1043883). Alcance de la validación QVL. Consultado el 2026-09-12.
-[^13]: KLEVV. [Ficha técnica oficial de FIT V DDR5](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV_Product%20Sheet_MEMORY_FIT%20V_v5_EN.pdf?2026010501=). Nota de compatibilidad y catálogo. Consultado el 2026-09-12.
-[^14]: KLEVV. [FIT V DDR5 Memory Compatibility List, agosto de 2026](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV%20FIT%20V%20DDR5%20Memory%20Compatibility%20List_Aug26.pdf). Consultado el 2026-09-12.
-[^15]: ASUS. [BIOS y firmware de ROG Strix B860-A Gaming WiFi](https://www.asus.com/au/supportonly/rog%20strix%20b860-a%20gaming%20wifi/helpdesk_bios/). Historial de MRC, Intel ME y compatibilidad de memoria. Consultado el 2026-09-12.
-[^16]: ASRock. [BIOS de Z890 Nova WiFi](https://pg.asrock.com/mb/intel/Z890%20Nova%20WiFi/bios.html). Historial de mejoras de compatibilidad de memoria. Consultado el 2026-09-12.
-[^17]: ASRock. [Debug LED Troubleshooting Checklist](https://asrock.com/support/index.asp?cat=Debug). Códigos de inicialización de memoria. Consultado el 2026-09-12.
+1. KLEVV. [FIT V DDR5: especificaciones, perfiles SPD y números de parte](https://www.klevv.com/ken/products_details/memory/Klevv_FITV).
+2. KLEVV. [Ficha técnica oficial de FIT V DDR5](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV_Product%20Sheet_MEMORY_FIT%20V_v5_EN.pdf?2026010501=).
+3. KLEVV. [FIT V DDR5 Memory Compatibility List, agosto de 2026](https://www.klevv.com/HyAdmin/upload/goodFile/KLEVV%20FIT%20V%20DDR5%20Memory%20Compatibility%20List_Aug26.pdf).
+4. Intel. [Intel Core Ultra Desktop Processors (Series 2) Product Brief](https://www.intel.com/content/www/us/en/products/docs/processors/core-ultra/core-ultra-desktop-processors-series-2-brief.html).
+5. Intel. [Core Ultra 200S Datasheet: Memory Controller](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/007/memory-controller-mc/).
+6. Intel. [Core Ultra 200S Datasheet: Power Training](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/power-training/).
+7. Intel. [Core Ultra 200S Datasheet: System Memory Timing Support](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/005/system-memory-timing-support/).
+8. Intel. [Core Ultra 200S Datasheet: Processor SKU Support Matrix](https://edc.intel.com/content/www/us/en/design/products/platforms/details/arrow-lake-s/core-ultra-200s-series-processors-datasheet-volume-1-of-2/processor-sku-support-matrix/).
+9. Intel. [Intel Extreme Memory Profile (XMP)](https://www.intel.com/content/www/us/en/gaming/extreme-memory-profile-xmp.html).
+10. Micron. [DDR5 Key Module Features](https://www.micron.com/content/dam/micron/global/public/products/white-paper/ddr5-key-module-features-wp-client.pdf).
+11. ASUS. [Manual de ROG Strix B860-A Gaming WiFi](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1851/ROG_STRIX_B860-A_GAMING_WIFI/E25226_ROG_STRIX_B860-A_GAMING_WIFI_EM_WEB.pdf?model=ROG+STRIX+B860-A+GAMING+WIFI).
+12. ASUS. [Especificaciones de ROG Strix Z890-A Gaming WiFi](https://rog.asus.com/motherboards/rog-strix/rog-strix-z890-a-gaming-wifi/spec/).
+13. ASUS. [Cómo consultar la lista QVL de CPU y memoria](https://www.asus.com/support/FAQ/1043883).
+14. ASUS. [BIOS y firmware de ROG Strix B860-A Gaming WiFi](https://www.asus.com/au/supportonly/rog%20strix%20b860-a%20gaming%20wifi/helpdesk_bios/).
+15. ASRock. [Z890 Nova WiFi: especificaciones](https://pg.asrock.com/mb/Intel/Z890%20Nova%20WiFi/index.asp).
+16. ASRock. [BIOS de Z890 Nova WiFi](https://pg.asrock.com/mb/intel/Z890%20Nova%20WiFi/bios.html).
+17. ASRock. [Debug LED Troubleshooting Checklist](https://asrock.com/support/index.asp?cat=Debug).
+
+Referencias consultadas el **2026-09-12**.
 
 ---
 
@@ -436,4 +438,5 @@ Preguntas concretas para KLEVV:
 
 | Versión | Fecha | Descripción |
 |---------|-------|-------------|
+| 1.1 | 2026-09-12 | Reemplazo de las notas al pie por referencias visibles y enlaces directos dentro del análisis. |
 | 1.0 | 2026-09-12 | Creación del análisis técnico, consolidación de pruebas, hipótesis causales, metodología de confirmación y fuentes oficiales. |

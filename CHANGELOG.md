@@ -6,6 +6,14 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.2.1] - 2026-09-12
+
+### Corregido
+
+- Sustitución de las notas al pie de `RMA-002` por enlaces directos en el análisis y una sección visible de referencias.
+
+---
+
 ## [1.2.0] - 2026-09-12
 
 ### Agregado
