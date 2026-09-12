@@ -78,6 +78,7 @@ Información técnica clara y reutilizable para **Ventas**, **Taller de Armado**
 
 ## Documentación reciente
 
+- [PROC-002 - Recepción e ingreso a RMA desde Ventas](01-Procedimientos/PROC-002-Recepcion-e-Ingreso-a-RMA-desde-Ventas.md)
 - [RMA-002 - Sin POST con memorias KLEVV FIT V en Intel LGA1851](03-Casos-RMA/RMA-002-Sin-POST-con-memorias-KLEVV-FIT-V-en-Intel-LGA1851.md)
 - [COMP-003 - Memorias KLEVV FIT V con plataforma Intel LGA1851](05-Compatibilidades/COMP-003-Memorias-KLEVV-FIT-V-con-Intel-LGA1851.md)
 - [PROC-001 - Uso de Debloat by JP en Windows](01-Procedimientos/PROC-001-Uso-de-Debloat-by-JP-en-Windows.md)

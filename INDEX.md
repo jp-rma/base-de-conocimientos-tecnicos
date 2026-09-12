@@ -11,6 +11,7 @@ Este documento centraliza el acceso a toda la documentación técnica disponible
 | Código | Documento | Estado |
 |--------|-----------|--------|
 | PROC-001 | [Uso de Debloat by JP en Windows](01-Procedimientos/PROC-001-Uso-de-Debloat-by-JP-en-Windows.md) | <span class="kb-status kb-status--ok">Vigente</span> |
+| PROC-002 | [Recepción e ingreso a RMA desde Ventas](01-Procedimientos/PROC-002-Recepcion-e-Ingreso-a-RMA-desde-Ventas.md) | <span class="kb-status kb-status--ok">Vigente</span> |
 
 ---
 

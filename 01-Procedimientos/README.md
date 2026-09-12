@@ -21,3 +21,4 @@ Los procedimientos buscan reducir errores, estandarizar tareas y garantizar una 
 | Código | Documento | Estado |
 |--------|-----------|--------|
 | PROC-001 | [Uso de Debloat by JP en Windows](PROC-001-Uso-de-Debloat-by-JP-en-Windows.md) | <span class="kb-status kb-status--ok">Vigente</span> |
+| PROC-002 | [Recepción e ingreso a RMA desde Ventas](PROC-002-Recepcion-e-Ingreso-a-RMA-desde-Ventas.md) | <span class="kb-status kb-status--ok">Vigente</span> |

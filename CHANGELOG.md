@@ -6,6 +6,18 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.3.0] - 2026-09-12
+
+### Agregado
+
+- Incorporación de `PROC-002 - Recepción e ingreso a RMA desde Ventas`.
+- Definición del alcance de productos a recibir según el tipo de compra y el síntoma informado.
+- Incorporación de requisitos mínimos de información, gestión de evidencias y procedimientos diferenciados para Ventas Online y Presencial.
+- Incorporación de una matriz de recepción por síntoma y una lista de control previa a la derivación a RMA.
+- Actualización del índice de procedimientos, el índice general, la portada y la navegación del sitio.
+
+---
+
 ## [1.2.1] - 2026-09-12
 
 ### Corregido
