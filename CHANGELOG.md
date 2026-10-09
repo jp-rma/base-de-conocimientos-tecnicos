@@ -6,6 +6,14 @@ El objetivo es mantener un historial de la evolución de la estructura, organiza
 
 ---
 
+## [1.3.1] - 2026-10-08
+
+### Modificado
+
+- Actualización de `PROC-002` a la versión 1.1 con la indicación de recibir muestras impresas cuando la falla esté relacionada con la impresión.
+
+---
+
 ## [1.3.0] - 2026-09-12
 
 ### Agregado
