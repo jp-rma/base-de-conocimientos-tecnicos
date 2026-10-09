@@ -193,6 +193,10 @@ La tabla indica el alcance recomendado. RMA puede ampliarlo o reducirlo según e
 | Puerto o periférico no reconocido | Equipo y dispositivo relacionado | Producto, cable, adaptador o receptor involucrado | Puerto exacto, sistema operativo y resultado en otro equipo |
 | Notebook no carga o se apaga | Notebook completa con cargador | No corresponde desarmar para reducir el ingreso | LED de carga, porcentaje, cargador utilizado y condición de batería |
 
+## Caso específico: impresoras
+
+Cuando la falla esté relacionada con la impresión, solicitar al cliente que traiga las hojas donde se manifestó el problema, si las conserva. Estas muestras ayudan a identificar el tipo de falla y deben acompañar el ingreso.
+
 ## Caso específico: no da imagen
 
 Ante «no da imagen», Ventas debe preguntar:
