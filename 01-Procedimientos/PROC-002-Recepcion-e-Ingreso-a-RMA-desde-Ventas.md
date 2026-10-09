@@ -6,9 +6,9 @@
 | **Categoría** | Procedimiento |
 | **Área** | Ventas Online, Ventas Presencial, RMA y Taller |
 | **Estado** | <span class="kb-status kb-status--ok">Vigente</span> |
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Fecha de creación** | 2026-09-12 |
-| **Última actualización** | 2026-09-12 |
+| **Última actualización** | 2026-10-08 |
 
 ---
 
@@ -410,4 +410,5 @@ Se consideran desvíos:
 
 | Versión | Fecha | Descripción |
 |---------|-------|-------------|
+| 1.1 | 2026-10-08 | Se agregó la indicación de recibir muestras impresas cuando la falla esté relacionada con la impresión. |
 | 1.0 | 2026-09-12 | Creación del procedimiento de recepción presencial y online, matriz por síntomas y requisitos de información y evidencia. |
